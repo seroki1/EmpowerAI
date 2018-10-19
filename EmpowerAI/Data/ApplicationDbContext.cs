@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmpowerAI.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class EmpowerAIDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public EmpowerAIDbContext(DbContextOptions<EmpowerAIDbContext> options)
             : base(options)
         {
         }

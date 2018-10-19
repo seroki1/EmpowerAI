@@ -1,0 +1,78 @@
+﻿@model IEnumerable<EmpowerAI.Models.CompanyInfo>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillAddress2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillZip)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillAddress2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillZip)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

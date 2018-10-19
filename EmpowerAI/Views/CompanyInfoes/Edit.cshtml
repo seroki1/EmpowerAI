@@ -1,0 +1,70 @@
+﻿@model EmpowerAI.Models.CompanyInfo
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>CompanyInfo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="CompanyName" class="control-label"></label>
+                <input asp-for="CompanyName" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contact" class="control-label"></label>
+                <input asp-for="Contact" class="form-control" />
+                <span asp-validation-for="Contact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillAddress" class="control-label"></label>
+                <input asp-for="BillAddress" class="form-control" />
+                <span asp-validation-for="BillAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillAddress2" class="control-label"></label>
+                <input asp-for="BillAddress2" class="form-control" />
+                <span asp-validation-for="BillAddress2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillCity" class="control-label"></label>
+                <input asp-for="BillCity" class="form-control" />
+                <span asp-validation-for="BillCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillState" class="control-label"></label>
+                <input asp-for="BillState" class="form-control" />
+                <span asp-validation-for="BillState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillZip" class="control-label"></label>
+                <input asp-for="BillZip" class="form-control" />
+                <span asp-validation-for="BillZip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

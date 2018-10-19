@@ -1,0 +1,136 @@
+﻿@model EmpowerAI.Models.Submission
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    var db = new EmpowerAIContext();
+    var userInfo = (from x in db.User
+                    where x.Email.ToLower() == UserManager.GetUserName(User).ToLower()
+                    select x).FirstOrDefault();
+    var companyInfo = (from x in db.CompanyInfo
+                       where userInfo.CompanyId == x.Id
+                       select x).FirstOrDefault();
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>Submission</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @*@if (Model.TierId == 1) { }  add in handling for different tiers.. maybe have two separate create pages... not sure*@
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @*<label asp-for="User" class="control-label"></label><br />*@
+               Welcome @userInfo.FirstName  @userInfo.LastName!
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyId" class="control-label"></label>
+                @companyInfo.CompanyName
+            </div>
+            <div class="form-group">
+                <label asp-for="CampaignStartDate" class="control-label"></label>
+                <input asp-for="CampaignStartDate" class="form-control" required />
+                <span asp-validation-for="CampaignStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CampaignDuration" class="control-label">Campaign Duration</label>
+                <div class="form-inline">
+                    <input asp-for="CampaignDuration" class="form-control col-md-1" required />
+                    <select asp-for="CampaignDurationTypeId" class="form-control" asp-items="ViewBag.CampaignDurationTypeId"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalBudget" class="control-label"></label>
+                <input asp-for="TotalBudget" class="form-control" required />
+                <span asp-validation-for="TotalBudget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tier1Objective" class="control-label"></label>
+                <input asp-for="Tier1Objective" class="form-control" />
+                <span asp-validation-for="Tier1Objective" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferredMediaApproach" class="control-label"></label>
+                <input asp-for="PreferredMediaApproach" class="form-control" />
+                <span asp-validation-for="PreferredMediaApproach" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="TierId" class="control-label"></label>
+                <select asp-for="TierId" class="form-control" asp-items="ViewBag.TierId"></select>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Tier2ObjectiveId" class="control-label"></label>
+                <select asp-for="Tier2ObjectiveId" class="form-control" asp-items="ViewBag.Tier2ObjectiveId"></select>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsBudgetFlexible" /> @Html.DisplayNameFor(model => model.IsBudgetFlexible)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsCampaignContinuous" /> @Html.DisplayNameFor(model => model.IsCampaignContinuous)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsCustomMarketSchedule" /> @Html.DisplayNameFor(model => model.IsCustomMarketSchedule)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsCustomMarketBudget" /> @Html.DisplayNameFor(model => model.IsCustomMarketBudget)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remarks" class="control-label"></label>
+                <input asp-for="Remarks" class="form-control" />
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tier2ObjectiveGoal" class="control-label"></label>
+                <input asp-for="Tier2ObjectiveGoal" class="form-control" />
+                <span asp-validation-for="Tier2ObjectiveGoal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tier2ObjectiveBudgetFlexibility" class="control-label"></label>
+                <input asp-for="Tier2ObjectiveBudgetFlexibility" class="form-control" />
+                <span asp-validation-for="Tier2ObjectiveBudgetFlexibility" class="text-danger"></span>
+            </div>
+
+            @*<div class="form-group">
+                <label asp-for="AuthorizationName" class="control-label"></label>
+                <input asp-for="AuthorizationName" class="form-control" />
+                <span asp-validation-for="AuthorizationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsAuthorized" class="control-label"></label>
+                <input asp-for="IsAuthorized" class="form-control" />
+                <span asp-validation-for="IsAuthorized" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

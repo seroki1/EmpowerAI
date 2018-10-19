@@ -1,0 +1,144 @@
+﻿@model IEnumerable<EmpowerAI.Models.Submission>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CampaignStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CampaignDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalBudget)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tier1Objective)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferredMediaApproach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsBudgetFlexible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCampaignContinuous)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCustomMarketSchedule)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCustomMarketBudget)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tier2ObjectiveGoal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tier2ObjectiveBudgetFlexibility)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorizationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAuthorized)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CampaignDurationType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tier2Objective)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampaignStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampaignDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalBudget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tier1Objective)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreferredMediaApproach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsBudgetFlexible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCampaignContinuous)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCustomMarketSchedule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCustomMarketBudget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tier2ObjectiveGoal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tier2ObjectiveBudgetFlexibility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorizationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAuthorized)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampaignDurationType.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.BillAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tier.TierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tier2Objective.Objective)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

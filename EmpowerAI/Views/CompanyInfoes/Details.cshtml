@@ -1,0 +1,67 @@
+﻿@model EmpowerAI.Models.CompanyInfo
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CompanyInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BillAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BillAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BillAddress2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BillAddress2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BillCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BillCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BillState)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BillState)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BillZip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BillZip)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

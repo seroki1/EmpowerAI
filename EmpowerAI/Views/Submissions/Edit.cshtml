@@ -1,0 +1,131 @@
+﻿@model EmpowerAI.Models.Submission
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Submission</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyId" class="control-label"></label>
+                <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
+                <span asp-validation-for="CompanyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CampaignStartDate" class="control-label"></label>
+                <input asp-for="CampaignStartDate" class="form-control" />
+                <span asp-validation-for="CampaignStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CampaignDuration" class="control-label"></label>
+                <input asp-for="CampaignDuration" class="form-control" />
+                <span asp-validation-for="CampaignDuration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalBudget" class="control-label"></label>
+                <input asp-for="TotalBudget" class="form-control" />
+                <span asp-validation-for="TotalBudget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tier1Objective" class="control-label"></label>
+                <input asp-for="Tier1Objective" class="form-control" />
+                <span asp-validation-for="Tier1Objective" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferredMediaApproach" class="control-label"></label>
+                <input asp-for="PreferredMediaApproach" class="form-control" />
+                <span asp-validation-for="PreferredMediaApproach" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TierId" class="control-label"></label>
+                <select asp-for="TierId" class="form-control" asp-items="ViewBag.TierId"></select>
+                <span asp-validation-for="TierId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tier2ObjectiveId" class="control-label"></label>
+                <select asp-for="Tier2ObjectiveId" class="form-control" asp-items="ViewBag.Tier2ObjectiveId"></select>
+                <span asp-validation-for="Tier2ObjectiveId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsBudgetFlexible" class="control-label"></label>
+                <input asp-for="IsBudgetFlexible" class="form-control" />
+                <span asp-validation-for="IsBudgetFlexible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsCampaignContinuous" /> @Html.DisplayNameFor(model => model.IsCampaignContinuous)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsCustomMarketSchedule" /> @Html.DisplayNameFor(model => model.IsCustomMarketSchedule)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsCustomMarketBudget" /> @Html.DisplayNameFor(model => model.IsCustomMarketBudget)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remarks" class="control-label"></label>
+                <input asp-for="Remarks" class="form-control" />
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tier2ObjectiveGoal" class="control-label"></label>
+                <input asp-for="Tier2ObjectiveGoal" class="form-control" />
+                <span asp-validation-for="Tier2ObjectiveGoal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tier2ObjectiveBudgetFlexibility" class="control-label"></label>
+                <input asp-for="Tier2ObjectiveBudgetFlexibility" class="form-control" />
+                <span asp-validation-for="Tier2ObjectiveBudgetFlexibility" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CampaignDurationTypeId" class="control-label"></label>
+                <select asp-for="CampaignDurationTypeId" class="form-control" asp-items="ViewBag.CampaignDurationTypeId"></select>
+                <span asp-validation-for="CampaignDurationTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorizationName" class="control-label"></label>
+                <input asp-for="AuthorizationName" class="form-control" />
+                <span asp-validation-for="AuthorizationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsAuthorized" class="control-label"></label>
+                <input asp-for="IsAuthorized" class="form-control" />
+                <span asp-validation-for="IsAuthorized" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
